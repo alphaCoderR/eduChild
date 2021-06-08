@@ -1,0 +1,17 @@
+{
+  "name": "socioapp",
+  "version": "1.0.0",
+  "description": "This app has an integrated payment portal",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alphaCoderR",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "easyinvoice": "^1.0.139",
+    "express": "^4.17.1",
+    "require-from-url": "^3.1.3"
+  }
+}

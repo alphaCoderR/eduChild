@@ -1,0 +1,18 @@
+<head><link rel="stylesheet" type="text/css" href="css/style.css" head=""/></head><div id="app"><transition name="page" :duration="1300"><div class="page" :is="page" @change-page="onChangePage"></div></transition></div><script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script><script id="start" type="text/x-template"><div class="start"><div class="inner"> <h1 class="title enter-1">Page Transition Demo</h1><div class="button-wrapper enter-2"><button class="button button-start" type="button" @click="$emit('change-page', 'next')"> <span class="button-text">Start!</span></button></div></div></div></script><script id="next" type="text/x-template"><div class="next"><div class="inner"><h1 class="title enter-1">You may want to use...</h1><ul class="next-list"><li class="enter-2">&lt;transition&gt; built-in component of Vue.js</li><li class="enter-3">CSS Transition/Animation for simple animation combinations</li><li class="enter-4">JavaScript hooks for complex animation</li></ul><div class="button-wrapper enter-5"><button class="button button-next" type="button" @click="$emit('change-page', 'start')"><span class="button-text">Back</span></button></div></div></div></script><script>Vue.config.productionTip = false;
+Vue.component("start", {
+template: "#start"
+});
+Vue.component("next", {
+template: "#next"
+});
+new Vue({
+el: "#app",
+data: {
+page: "start"
+},
+methods: {
+onChangePage(to) {
+this.page = to;
+}
+}
+});</script>
