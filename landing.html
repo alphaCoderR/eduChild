@@ -1,18 +1,86 @@
-<head><link rel="stylesheet" type="text/css" href="css/style.css" head=""/></head><div id="app"><transition name="page" :duration="1300"><div class="page" :is="page" @change-page="onChangePage"></div></transition></div><script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script><script id="start" type="text/x-template"><div class="start"><div class="inner"> <h1 class="title enter-1">Page Transition Demo</h1><div class="button-wrapper enter-2"><button class="button button-start" type="button" @click="$emit('change-page', 'next')"> <span class="button-text">Start!</span></button></div></div></div></script><script id="next" type="text/x-template"><div class="next"><div class="inner"><h1 class="title enter-1">You may want to use...</h1><ul class="next-list"><li class="enter-2">&lt;transition&gt; built-in component of Vue.js</li><li class="enter-3">CSS Transition/Animation for simple animation combinations</li><li class="enter-4">JavaScript hooks for complex animation</li></ul><div class="button-wrapper enter-5"><button class="button button-next" type="button" @click="$emit('change-page', 'start')"><span class="button-text">Back</span></button></div></div></div></script><script>Vue.config.productionTip = false;
-Vue.component("start", {
-template: "#start"
-});
-Vue.component("next", {
-template: "#next"
-});
-new Vue({
-el: "#app",
-data: {
-page: "start"
-},
-methods: {
-onChangePage(to) {
-this.page = to;
-}
-}
-});</script>
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.83.1" />
+    <title>Cover Template · Bootstrap v5.0</title>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.0/examples/cover/"
+    />
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body class="d-flex h-100 text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <div>
+          <h3 class="float-md-start mb-0">Cover</h3>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="px-3">
+        <h1>Cover your page.</h1>
+        <p class="lead">
+          Cover is a one-page template for building simple and beautiful home
+          pages. Download, edit the text, and add your own fullscreen background
+          photo to make it your own.
+        </p>
+        <p class="lead">
+          <a
+            href="#"
+            class="btn btn-lg btn-secondary fw-bold border-white bg-white"
+            >Learn more</a
+          >
+        </p>
+      </main>
+
+      <main class="form-signin">
+        <form>
+          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+      
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+          <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+        </form>
+      </main>
+      
+      <footer class="mt-auto text-white-50">
+        <p>
+          Cover template for
+          <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>,
+          by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
