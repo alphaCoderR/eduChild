@@ -1,3 +1,5 @@
+
+// *** Text Changing code ***
 let counter = "donationPage";
 function textChange() {
   let text = document.getElementById("iterateEffects");
@@ -9,12 +11,14 @@ function textChange() {
   }
 }
 
-const url="http://localhost:5000/order";
-      $(".submit").click(()=>{
-        const data={
-          amount:$("#amount-tag").val()
-        }
-        $.post(url,data,(data,status)=>{
-          console.log(data);
-        });
-      })
+
+// *** Requesting data from the backend server ***
+const url = "http://localhost:5000/order";
+$(".submit").click(() => {
+  const data = {
+    amount: $("#amount-tag").val(),
+  };
+  $.post(url, data, (data, status) => {
+    console.log(data);
+  });
+});

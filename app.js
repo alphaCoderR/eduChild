@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const Razorpay = require("razorpay");
-const axios=require("axios");
 
 const app = express();
 
@@ -13,6 +12,8 @@ app.use(
     extended: true,
   })
 );
+
+// ******* Razorpay payment code *******
 
 const razorPay = new Razorpay({
   key_id: process.env.KEY_ID,
@@ -36,6 +37,8 @@ app.post("/order",(req,res)=>{
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/landing.html");
 });
+
+
 
 app.listen(5000, (req, res) => {
   console.log("Server is running on port 5000");
