@@ -28,6 +28,7 @@ app.post("/order",(req,res)=>{
   }; 
 
   razorPay.orders.create(options, function(err, order) {
+    order.key_id=process.env.KEY_ID;
     console.log(order);
     res.json(order);
   });
