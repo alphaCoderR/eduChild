@@ -1,6 +1,8 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
-var easyinvoice = require("easyinvoice");
+const Razorpay = require("razorpay");
+const axios=require("axios");
 
 const app = express();
 
@@ -11,6 +13,25 @@ app.use(
     extended: true,
   })
 );
+
+const razorPay = new Razorpay({
+  key_id: process.env.KEY_ID,
+  key_secret: process.env.KEY_SECRET,
+});
+
+app.post("/order",(req,res)=>{
+  let options = {
+    amount: req.body.amount,  
+    currency: "INR",
+    receipt: "order_rcptid_11"
+  }; 
+
+  razorPay.orders.create(options, function(err, order) {
+    console.log(order);
+    res.json(order);
+  });
+});
+
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/landing.html");

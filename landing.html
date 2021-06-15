@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="css/animations.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="js/modernizr.custom.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   </head>
   <body>
     <section id="header">
@@ -36,7 +38,7 @@
                 mb-md-0
               "
             >
-              <li><a href="#" class="nav-link px-2" style="color: #0ac2d2;letter-spacing: 1px;font-size: 18px;">EduChild</a></li>
+              <li><a href="/" class="nav-link px-2" style="color: #0ac2d2;letter-spacing: 1px;font-size: 18px;">EduChild</a></li>
             </ul>
 
             <div class="text-end" style="width: 10%">
@@ -145,20 +147,21 @@
               />
               <label for="floatingInput">Email</label>
             </div>
+
             <div class="form-floating">
               <input
-                type="tel"
+                type="number"
                 class="form-control"
-                id="floatingInput"
-                placeholder="Mob"
-                name="Mobile"
+                id="amount-tag"
+                placeholder="amount"
+                name="Amount"
                 required
               />
-              <label for="floatingInput">Mobile No.</label>
+              <label for="floatingInput">Amount</label>
             </div>
 
             <div class="pt-triggers submit">
-              <button href="#" class="pt-touch-button">Submit</button>
+              <button type="button" class="pt-touch-button">Submit</button>
             </div>
           </form>
         </main>
@@ -179,17 +182,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.dlmenu.js"></script>
     <script src="js/pagetransitions.js"></script>
-    <script>
-      let counter = "donationPage";
-      function textChange() {
-        let text = document.getElementById("iterateEffects");
-        counter = counter == "donationPage" ? "loginPage" : "donationPage";
-        if (counter == "donationPage") {
-          text.innerHTML = "Donate";
-        } else {
-          text.innerHTML = "Go Back";
-        }
-      }
-    </script>
+    <script src="js/script.js"></script>
+  
   </body>
 </html>
