@@ -1,20 +1,23 @@
+// ***** Requiring all the important packages *****
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const Razorpay = require("razorpay");
 
+
+
+// ***** Creating the app *****
 const app = express();
-
 app.use(express.static("public"));
-
 app.use(
   bodyParser.urlencoded({
     extended: true,
   })
 );
 
-// ******* Razorpay payment code *******
 
+
+// ******* Razorpay payment code *******
 const razorPay = new Razorpay({
   key_id: process.env.KEY_ID,
   key_secret: process.env.KEY_SECRET,
@@ -34,6 +37,8 @@ app.post("/order",(req,res)=>{
 });
 
 
+
+//  ***** Defining different routes *****
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/landing.html");
 });
