@@ -13,7 +13,7 @@ function textChange() {
   }
 }
 
-const url = "http://localhost:5000/order";
+const url = "/order";
 $("#rzp-button1").click(() => {
   receivedData.name = $("input[name=Name]").val();
   receivedData.email = $("input[name=Email]").val();
@@ -40,6 +40,11 @@ $("#rzp-button1").click(() => {
         receivedData.order_id = response.razorpay_order_id;
         receivedData.signature = response.razorpay_signature;
         sessionStorage.setItem("userData", JSON.stringify(receivedData));
+        $.post("/success", { data: receivedData }, (data, status) => {
+          if (status == "success") {
+            console.log("Loaded");
+          }
+        });
         window.location.href = "/success";
       },
       prefill: {
