@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrao.min.js" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        background: #f2f2f2;
+        font-family: sans-serif;
+      }
+
+      .payment {
+        border: 1px solid #f34b4b;
+        height: 360px;
+        background: #fff;
+        width: 50%;
+        margin: 3% auto 0 auto;
+      }
+      .payment_header {
+        background: #f34b4b;
+        padding: 20px;
+      }
+
+      .check {
+        margin: 0px auto;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background: #fff;
+        text-align: center;
+      }
+
+      .check i {
+        vertical-align: middle;
+        line-height: 50px;
+        font-size: 30px;
+      }
+
+      .content {
+        text-align: center;
+      }
+
+      .content h1 {
+        font-size: 25px;
+        padding-top: 25px;
+      }
+
+      .content a {
+        text-decoration: none;
+        width: 200px;
+        height: 35px;
+        color:#f34b4b;
+        border: 1px solid #f34b4b;
+        margin-bottom: 0;
+        padding: 1% 1.5%;
+        background: transparent;
+        transition: all ease-in-out 0.3s;
+      }
+
+      .content a:hover {
+        text-decoration: none;
+        background: #f34b4b;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body onload="paymentDetails();">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto mt-5">
+          <div class="payment">
+            <div class="payment_header">
+              <div class="check">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="content">
+              <h1>Opps ! Something Went Wrong</h1>
+              <p>
+                Your payment failed due to some technical reasons. Here are the
+                details.
+              </p>
+              <p><b>Error Code : </b><span id="code">sdslkjdlsk</span></p>
+              <p>
+                <b>Description : </b><span id="description">sxhfsjkhs</span>
+              </p>
+              <div style="margin-top: 5%;">
+                <a href="/">Go to Home</a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function paymentDetails() {
+        Data = JSON.parse(sessionStorage.userData);
+        document.getElementById("code").innerHTML = Data.errCode;
+        document.getElementById("description").innerHTML = Data.description;
+      }
+    </script>
+  </body>
+</html>

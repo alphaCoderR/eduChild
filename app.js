@@ -29,7 +29,6 @@ app.post("/order",(req,res)=>{
 
   razorPay.orders.create(options, function(err, order) {
     order.key_id=process.env.KEY_ID;
-    console.log(order);
     res.json(order);
   });
 });
@@ -39,7 +38,13 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/landing.html");
 });
 
+app.get("/success",(req,res)=>{
+  res.sendFile(__dirname+"/success.html");
+});
 
+app.get("/failure",(req,res)=>{
+  res.sendFile(__dirname+"/failure.html");
+});
 
 app.listen(5000, (req, res) => {
   console.log("Server is running on port 5000");
